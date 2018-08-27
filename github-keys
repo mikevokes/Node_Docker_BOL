@@ -1,0 +1,15 @@
+//permissions pushing to git from command line
+1. I was logged into git as bookoflife when I logged in and was able to push master
+2. I was logged in as mike.vokes.dev when i created the repo so this doesn't matter
+3. I deleted the keys from both and created new ones, couldn't push after the bookoflife new keys
+4. New mike.vokes.dev key in terminal, following the git procedures and then copying into the github key settings
+5. Able to push master to repo in mike.vokes.dev github repo
+6. git config --list => shows bookoflife username and admin@ for email - so not relevant
+7. Bottom left of VSC shows on master branch
+8. Lecture 80 of Docker (Sgrider) show new repo creation
+9. then Travis CI integration - GitHub monitors it 
+10. Travis will be used to TEST the code
+11. travis-ci.org - sign in with GitHub
+12. Should see all GitHub repos - activation ones, tabbed green active
+13. 
+

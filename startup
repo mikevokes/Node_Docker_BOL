@@ -1,0 +1,78 @@
+//*** Docker Terminal Startup Script(s)
+
+//WORKING METHOD
+//Create the container from custom Dockerfile - frontend
+    docker build -f Dockerfile.dev .
+//remove node_modules directory - reduces the size and the npm install will install from dependencies in package.json
+//Run the container and map the ports, and volumes - edit files should auto update
+//dont use files in /app, rather the presentWorkingDirectory/app on local machine
+    docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app 83cbea993cb1
+//DOCKER-COMPOSE working method
+//see frontend docker-compose.yml
+
+
+//CONSIDER
+Alpine images are 'barebones'
+
+//TERMINAL access inside a container        //DO YOU HAVE SERVICES IN THE from IMAGE
+docker exec -it <containerId> sh            //gives us a shell(terminal) access after loading the container
+docker exec -it <containerID> redis-cli     //access to redis-server CLI
+
+//IMAGES - creating your own 
+//DOCKERFILE FROM(base image) RUN(depedancies) CMD(startup instruction) - run in local dir with "docker build ."
+
+
+//VOLUMES
+//see Lecture 65 for details - without copying all the files, just referencing them
+//auto reloads on edit changes
+docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app 83cbea993cb1
+
+
+//DOCKER-COMPOSE
+//REQ docker-compose.yml file
+docker-compose up                           //goes through the build process of the YML file
+
+//DOCKER CUSTOM FILENAME
+docker build .                              //looks for Dockerfile
+docker build -f Dockerfile.dev .
+
+//BUILD
+docker build .                              //creates container in local dir from Dockerfile 
+
+//TAGGING
+docker build -t bookoflife/BOLWeb:latest    //creates the container and names it (bookoflife/BOLWeb)
+
+//RUN
+docker run <imageName>                      //loads image, local or from docker
+docker run -d <imageName>                   //create container in the background of the terminal
+docker run -p 3000:3000 <imageName>         //creates a container and maps browser port 3000 to container port 3000
+
+//containers
+
+//COMMANDS
+docker ps                                   //lists running containers
+docker ps --all                             //lists all prevoiusly created containers
+
+docker create <imageName>                   //creates a local container (not running) 
+
+docker run <imageName/containerID>          //runs the container - no output
+docker run -a <imageName/containerID>       //runs the container - listens for output
+docker logs <containerID>                   //retrieves output missing if -a was forgotten
+
+docker start -a <containerID>               //runs previously created containers, with previously assigned commands - cannot change them
+
+docker system prune                         //deletes and cleans ALL images and DockerHub downloads
+
+docker stop <containerID>                   //asks container to close down - forces after 10sec
+docker kill <containerID>                   //kills container processes immediately
+
+//TESTING Node.js server
+docker run <imageName> npm run test
+
+
+//USEFULL CONTAINERS
+redis-server                                //in memory data store 
+node:alpine                                 //barebones node server
+
+//GIT Commands
+
