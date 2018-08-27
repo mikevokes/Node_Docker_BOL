@@ -11,5 +11,7 @@
 10. Travis will be used to TEST the code
 11. travis-ci.org - sign in with GitHub
 12. Should see all GitHub repos - activation ones, tabbed green active
-13. 
+
+//new branches
+1. git checkout -b CSS 
 
