@@ -13,6 +13,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
           This was the edit I made - on the fly - then with compose.
+          I was Changed on the CSS branch
         </p>
       </div>
     );
