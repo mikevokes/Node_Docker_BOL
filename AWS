@@ -1,2 +1,4 @@
 //Elastic Beanstalk on AWS for Docker deployment
 //Lecture 86 / 87 / 88 - IAM user
+
+//port mapping is in Dockerfile and EXPOSE 80 - tells beanstalk to open that port for traffic

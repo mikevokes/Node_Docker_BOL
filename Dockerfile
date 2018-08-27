@@ -12,6 +12,7 @@ RUN ["npm","run","build"]
 #above container is now obsolute, only the results will now be available
 #second container that will deliver the build items from above 
 FROM nginx
+EXPOSE 80
 
 COPY --from=builder /app/build /usr/share/nginx/html
 
