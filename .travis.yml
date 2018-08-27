@@ -3,7 +3,7 @@ services:
   - docker
 
 before install:
-  - docker build -t dockerBOL -f Dockerfile.dev .
+  - docker build -t docker-bol -f Dockerfile.dev .
 
 script:
-  - docker run dockerBOL npm run test -- --coverage
+  - docker run docker-bol npm run test -- --coverage
