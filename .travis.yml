@@ -7,3 +7,17 @@ before_install:
 
 script:
   - docker run docker-bol npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "bookoflife-global"
+  env: "BookoflifeGlobal-env"
+  bucket_name: "elasticbeanstalk-us-east-1-761151488748"
+  bucket_path: "bookoflife-global"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
